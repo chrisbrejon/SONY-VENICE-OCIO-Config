@@ -21,7 +21,7 @@ Original files (encoded in "linear-AP0") are available [here](https://www.dropbo
 * Reference color space is XYZ which is the base of all colourimetry
 * "linear" stands for "linear_bt.709"
 * "cineonlog_rec709" can be used for a matte-painting workflow in Photoshop
-* "slog3_sgamut3cine" is the shaper space. It can be used for color timing and some log operations (such as sharpen)
+* "slog3_sgamut3cine" is the shaper space. It can be used for color timing and some operations (such as sharpen)
 * Substance_painter roles were set following [this page](https://mrlixm.github.io/blog/substance-painter-color-management/)
 * No inverse of the View Transform has been provided
 * One may easily add several colorspaces or displays for HDR output if needed (such as "Rec2020_D65_PQ")
