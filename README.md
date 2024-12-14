@@ -29,8 +29,8 @@ Original files (encoded in "linear-AP0") are available [here](https://www.dropbo
 # Looks
 * 36 looks from the [LUT & ART Files | Sony Cine](https://sonycine.com/resources/luts/) have been added to the config
 * **BUT** they have been merged with the SONY VENICE View in a single LUT
-* The use of Looks is highly recommended with SONY VENICE
-* To use one of the looks, you need to switch it with the one I left by default ("SONY VENICE High Contrast"). Like this for instance:
+* The use of Looks is highly recommended with SONY VENICE. I have set "SONY VENICE High Contrast" by default.
+* To use one of the looks, you need to switch it with the one I left by default. Like this for instance:
 
 ```active_views: [SONY VENICE DD01 Classic FPE, Un-tone-mapped, Log, Raw]```
 
