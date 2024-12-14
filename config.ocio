@@ -1,0 +1,508 @@
+ocio_profile_version: 1
+search_path: transforms
+strictparsing: true
+luma: [0.2126, 0.7152, 0.0722]
+
+description: SONY VENICE for OCIO v1.2
+
+roles:
+  color_picking: linear
+  color_timing: slog3_sgamut3cine
+  compositing_log: slog3_sgamut3cine
+  data: raw
+  default: linear
+  matte_paint: cineonlog_rec709
+  rendering: linear
+  scene_linear: linear
+  texture_paint: linear
+  mari_monitor: rec709_display
+  mari_scalar_monitor: rec709_display
+  mari_color_picker: rec709_display
+  mari_working: linear
+  mari_int8: srgb_texture
+  mari_int16: srgb_texture
+  mari_int_scalar: raw
+  mari_scalar8: raw
+  mari_float: linear
+  substance_3d_painter_standard_srgb: srgb_texture
+  substance_3d_painter_bitmap_import_8bit: srgb_texture
+  substance_3d_painter_bitmap_import_16bit: srgb_texture
+  substance_3d_painter_bitmap_import_floating: linear
+  substance_3d_painter_substance_material: srgb_texture
+  substance_3d_painter_bitmap_export_8bit: srgb_texture
+  substance_3d_painter_bitmap_export_16bit: srgb_texture
+  substance_3d_painter_bitmap_export_floating: linear  
+
+displays:
+  Rec1886 100 nits video dim:
+    - !<View> {name: SONY VENICE, colorspace: SONY VENICE - Rec.709 - 2.4 Gamma}
+    - !<View> {name: SONY VENICE Cine Gear Noir BW, colorspace: Cine Gear Noir BW - Rec.709 - 2.4 Gamma}
+    - !<View> {name: SONY VENICE Cine Gear Noir Teal, colorspace: Cine Gear Noir Teal - Rec.709 - 2.4 Gamma}
+    - !<View> {name: SONY VENICE Burano Cool, colorspace: Burano Cool - Rec.709 - 2.4 Gamma}
+    - !<View> {name: SONY VENICE Burano Teal And Orange, colorspace: Burano Teal And Orange - Rec.709 - 2.4 Gamma}
+    - !<View> {name: SONY VENICE Burano Warm, colorspace: Burano Warm - Rec.709 - 2.4 Gamma}
+    - !<View> {name: SONY VENICE Burano Vintage, colorspace: Burano Vintage - Rec.709 - 2.4 Gamma}
+    - !<View> {name: SONY VENICE Low Contrast Base, colorspace: Low Contrast Base LUT - Rec.709 - 2.4 Gamma}
+    - !<View> {name: SONY VENICE High Contrast, colorspace: High Contrast LUT - Rec.709 - 2.4 Gamma}
+    - !<View> {name: SONY VENICE 50-50, colorspace: 50-50 LUT - Rec.709 - 2.4 Gamma}
+    - !<View> {name: SONY VENICE Look1, colorspace: Look1 - Rec.709 - 2.4 Gamma}
+    - !<View> {name: SONY VENICE Look2, colorspace: Look2 - Rec.709 - 2.4 Gamma}
+    - !<View> {name: SONY VENICE Damore Daylight, colorspace: Damore Daylight - Rec.709 - 2.4 Gamma}
+    - !<View> {name: SONY VENICE Damore Style, colorspace: Damore Style - Rec.709 - 2.4 Gamma}
+    - !<View> {name: SONY VENICE Damore Tungsten, colorspace: Damore Tungsten - Rec.709 - 2.4 Gamma}    
+    - !<View> {name: SONY VENICE AB01 Cool FPE, colorspace: AB01 Cool FPE - Rec.709 - 2.4 Gamma}
+    - !<View> {name: SONY VENICE AB02 Cool D65, colorspace: AB02 Cool D65 - Rec.709 - 2.4 Gamma}
+    - !<View> {name: SONY VENICE AB03 Warm FPE, colorspace: AB03 Warm FPE - Rec.709 - 2.4 Gamma}
+    - !<View> {name: SONY VENICE AB04 Warm D65, colorspace: AB04 Warm D65 - Rec.709 - 2.4 Gamma}
+    - !<View> {name: SONY VENICE AB05 Tinted FPE, colorspace: AB05 Aged Tinted FPE - Rec.709 - 2.4 Gamma}
+    - !<View> {name: SONY VENICE AB06 Tinted D65, colorspace: AB06 Aged Tinted D65 - Rec.709 - 2.4 Gamma}
+    - !<View> {name: SONY VENICE DD01 Classic FPE, colorspace: DD01 Classic FPE - Rec.709 - 2.4 Gamma}    
+    - !<View> {name: SONY VENICE JF01 Fogged Color Pull FPE, colorspace: JF01 Fogged Color Pull FPE - Rec.709 - 2.4 Gamma}
+    - !<View> {name: SONY VENICE JF02 Cool Color Push FPE, colorspace: JF02 Cool Color Push FPE - Rec.709 - 2.4 Gamma}
+    - !<View> {name: SONY VENICE JF03 Silver Color Pull FPE, colorspace: JF03 Silver Color Pull FPE - Rec.709 - 2.4 Gamma}
+    - !<View> {name: SONY VENICE JF04 Color Push D65, colorspace: JF04 Color Push D65 - Rec.709 - 2.4 Gamma}
+    - !<View> {name: SONY VENICE JF05 Silver Color Push D65, colorspace: JF05 Super Silver Color Push D65 - Rec.709 - 2.4 Gamma}
+    - !<View> {name: SONY VENICE JF06 Cool Push D65, colorspace: JF06 Cool Push D65 - Rec.709 - 2.4 Gamma}
+    - !<View> {name: SONY VENICE MG01 Golden Lush FPE, colorspace: MG01 Golden Lush FPE - Rec.709 - 2.4 Gamma}
+    - !<View> {name: SONY VENICE MG02 Golden Lush D65, colorspace: MG02 Golden Lush D65 - Rec.709 - 2.4 Gamma}
+    - !<View> {name: SONY VENICE MG03 Grit Cold FPE, colorspace: MG03 Grit Cold FPE - Rec.709 - 2.4 Gamma}
+    - !<View> {name: SONY VENICE MG04 Grit Cold D65, colorspace: MG04 Grit Cold D65 - Rec.709 - 2.4 Gamma}
+    - !<View> {name: SONY VENICE MG05 Silver Sat FPE, colorspace: MG05 Silver Sat FPE - Rec.709 - 2.4 Gamma}
+    - !<View> {name: SONY VENICE MG06 Silver Sat D65, colorspace: MG06 Silver Sat D65 - Rec.709 - 2.4 Gamma}
+    - !<View> {name: SONY VENICE SA01 Warm FPE, colorspace: SA01 Warm FPE - Rec.709 - 2.4 Gamma}
+    - !<View> {name: SONY VENICE SA02 Cool FPE, colorspace: SA02 Cool FPE - Rec.709 - 2.4 Gamma}
+    - !<View> {name: SONY VENICE SA03 Golden FPE, colorspace: SA03 Golden FPE - Rec.709 - 2.4 Gamma}    
+    - !<View> {name: Un-tone-mapped, colorspace: rec709_display}               
+    - !<View> {name: Log, colorspace: cineonlog_rec709}
+    - !<View> {name: Raw, colorspace: raw}
+
+active_displays: [Rec1886 100 nits Video dim]
+active_views: [SONY VENICE High Contrast, Un-tone-mapped, Log, Raw]
+
+##################################### SCENE-REFERRED ##############################################
+
+colorspaces:
+  - !<ColorSpace>
+    name: linear
+    family: SceneReferred    
+    bitdepth: 32f
+    description: Linear - Rec.709
+    to_reference: !<MatrixTransform> {matrix: [0.4338873, 0.3762240, 0.1898886, 0, 0.2126390, 0.7151687, 0.0721923, 0, 0.0177500, 0.1094476, 0.8728023, 0, 0, 0, 0, 1]}
+    allocation: lg2
+    allocationvars: [-10, 7, 0.0056065625]
+
+  - !<ColorSpace>
+    name: cineonlog_rec709
+    family: SceneReferred    
+    bitdepth: 32f
+    description: Cineon Log - Rec.709
+    to_reference: !<GroupTransform>
+      children:
+        - !<FileTransform> {src: CineonLog_2_Linear.spi1d, interpolation: linear}
+        - !<MatrixTransform> {matrix: [0.4338873, 0.3762240, 0.1898886, 0, 0.2126390, 0.7151687, 0.0721923, 0, 0.0177500, 0.1094476, 0.8728023, 0, 0, 0, 0, 1]}
+
+  - !<ColorSpace>
+    name: slog3_sgamut3cine
+    family: SceneReferred    
+    bitdepth: 32f    
+    description: Grading space
+    to_reference: !<GroupTransform>
+      children:
+        - !<FileTransform> {src: SLog3_2_Linear.spi1d, interpolation: linear}
+        - !<MatrixTransform> {matrix: [0.6303121520, 0.2619011666, 0.1077866814, 0, 0.2150758201, 0.8850685017, -0.1001443219, 0, -0.0294436631, -0.0253966244, 1.0548402876, 0, 0, 0, 0, 1]}      
+
+  - !<ColorSpace>
+    name: lin_xyz
+    family: SceneReferred    
+    bitdepth: 32f
+    description: Linear reference space
+    allocation: lg2
+    allocationvars: [-10, 7, 0.0056065625]           
+ 
+  - !<ColorSpace>
+    name: aces
+    family: SceneReferred    
+    bitdepth: 32f
+    description: Linear - AP0
+    to_reference: !<MatrixTransform> {matrix: [0.9999017, 0.0000000, 0.0000983, 0, 0.3439664, 0.7281661, -0.0721325, 0, 0.0000000, 0.0000000, 1.0000000, 0, 0, 0, 0, 1]}
+    allocation: lg2
+    allocationvars: [-10, 7, 0.0056065625]  
+
+  - !<ColorSpace>
+    name: acescg
+    family: SceneReferred    
+    bitdepth: 32f
+    description: Linear - AP1  
+    to_reference: !<MatrixTransform> {matrix: [0.6953833105, 0.1406652586, 0.1639514308, 0, 0.2722287168, 0.6740817658, 0.0536895174, 0, -0.0055258826, 0.0040252103, 1.0015006723, 0, 0, 0, 0, 1]}
+    allocation: lg2
+    allocationvars: [-10, 7, 0.0056065625]
+
+##################################### DISPLAY-REFERRED ##############################################
+
+  - !<ColorSpace>
+    name: SONY VENICE - Rec.709 - 2.4 Gamma
+    family: Sony Collection
+    bitdepth: 32f
+    from_reference: !<GroupTransform>
+      children:
+        - !<ColorSpaceTransform> {src: lin_xyz, dst: slog3_sgamut3cine}
+        - !<FileTransform> {src: Slog3-S-Gamut3.Cine_To_s709_V200.cube, interpolation: tetrahedral}
+
+  - !<ColorSpace>
+    name: Cine Gear Noir BW - Rec.709 - 2.4 Gamma
+    family: Cine Gear
+    bitdepth: 32f
+    from_reference: !<GroupTransform>
+      children:
+        - !<ColorSpaceTransform> {src: lin_xyz, dst: slog3_sgamut3cine}
+        - !<FileTransform> {src: AA_BW_V.cube, interpolation: tetrahedral}
+
+  - !<ColorSpace>
+    name: Cine Gear Noir Teal - Rec.709 - 2.4 Gamma
+    family: Cine Gear
+    bitdepth: 32f
+    from_reference: !<GroupTransform>
+      children:
+        - !<ColorSpaceTransform> {src: lin_xyz, dst: slog3_sgamut3cine}
+        - !<FileTransform> {src: AA2_COLOR_V.cube, interpolation: tetrahedral}         
+
+  - !<ColorSpace>
+    name: Burano Cool - Rec.709 - 2.4 Gamma
+    family: Burano
+    bitdepth: 32f
+    from_reference: !<GroupTransform>
+      children:
+        - !<ColorSpaceTransform> {src: lin_xyz, dst: slog3_sgamut3cine}
+        - !<FileTransform> {src: SL3SG3CtoCool_709.cube, interpolation: tetrahedral}
+
+  - !<ColorSpace>
+    name: Burano Teal And Orange - Rec.709 - 2.4 Gamma
+    family: Burano
+    bitdepth: 32f
+    from_reference: !<GroupTransform>
+      children:
+        - !<ColorSpaceTransform> {src: lin_xyz, dst: slog3_sgamut3cine}
+        - !<FileTransform> {src: SL3SG3CtoTealOR_709.cube, interpolation: tetrahedral}
+
+  - !<ColorSpace>
+    name: Burano Warm - Rec.709 - 2.4 Gamma
+    family: Burano
+    bitdepth: 32f
+    from_reference: !<GroupTransform>
+      children:
+        - !<ColorSpaceTransform> {src: lin_xyz, dst: slog3_sgamut3cine}
+        - !<FileTransform> {src: SL3SG3CtoWarm_709.cube, interpolation: tetrahedral}
+
+  - !<ColorSpace>
+    name: Burano Vintage - Rec.709 - 2.4 Gamma
+    family: Burano
+    bitdepth: 32f
+    from_reference: !<GroupTransform>
+      children:
+        - !<ColorSpaceTransform> {src: lin_xyz, dst: slog3_sgamut3cine}
+        - !<FileTransform> {src: SL3SG3CtoVintage_709.cube, interpolation: tetrahedral}
+
+  - !<ColorSpace>
+    name: Low Contrast Base LUT - Rec.709 - 2.4 Gamma
+    family: Josh Pines
+    bitdepth: 32f
+    from_reference: !<GroupTransform>
+      children:
+        - !<ColorSpaceTransform> {src: lin_xyz, dst: slog3_sgamut3cine}
+        - !<FileTransform> {src: sv2_base_locon_r709_g24.cube, interpolation: tetrahedral}
+
+  - !<ColorSpace>
+    name: High Contrast LUT - Rec.709 - 2.4 Gamma
+    family: Josh Pines
+    bitdepth: 32f
+    from_reference: !<GroupTransform>
+      children:
+        - !<ColorSpaceTransform> {src: lin_xyz, dst: slog3_sgamut3cine}
+        - !<FileTransform> {src: sv2_look_7525_r709_g24.cube, interpolation: tetrahedral}
+
+  - !<ColorSpace>
+    name: 50-50 LUT - Rec.709 - 2.4 Gamma
+    family: Josh Pines
+    bitdepth: 32f
+    from_reference: !<GroupTransform>
+      children:
+        - !<ColorSpaceTransform> {src: lin_xyz, dst: slog3_sgamut3cine}
+        - !<FileTransform> {src: slgv4_locon_050-050.cube, interpolation: tetrahedral}
+
+  - !<ColorSpace>
+    name: Look1 - Rec.709 - 2.4 Gamma
+    family: Josh Pines
+    bitdepth: 32f
+    from_reference: !<GroupTransform>
+      children:
+        - !<ColorSpaceTransform> {src: lin_xyz, dst: slog3_sgamut3cine}
+        - !<FileTransform> {src: sv2_look_1_r709_g24.cube, interpolation: tetrahedral}
+
+  - !<ColorSpace>
+    name: Look2 - Rec.709 - 2.4 Gamma
+    family: Josh Pines
+    bitdepth: 32f
+    from_reference: !<GroupTransform>
+      children:
+        - !<ColorSpaceTransform> {src: lin_xyz, dst: slog3_sgamut3cine}
+        - !<FileTransform> {src: sv2_look_2_r709_g24.cube, interpolation: tetrahedral}                                 
+
+  - !<ColorSpace>
+    name: Damore Daylight - Rec.709 - 2.4 Gamma
+    family: Picture Shop
+    bitdepth: 32f
+    from_reference: !<GroupTransform>
+      children:
+        - !<ColorSpaceTransform> {src: lin_xyz, dst: slog3_sgamut3cine}
+        - !<FileTransform> {src: slog3_td_daylight_base.cube, interpolation: tetrahedral}
+
+  - !<ColorSpace>
+    name: Damore Style - Rec.709 - 2.4 Gamma
+    family: Picture Shop
+    bitdepth: 32f
+    from_reference: !<GroupTransform>
+      children:
+        - !<ColorSpaceTransform> {src: lin_xyz, dst: slog3_sgamut3cine}
+        - !<FileTransform> {src: slog3_td_style.cube, interpolation: tetrahedral}
+
+  - !<ColorSpace>
+    name: Damore Tungsten - Rec.709 - 2.4 Gamma
+    family: Picture Shop
+    bitdepth: 32f
+    from_reference: !<GroupTransform>
+      children:
+        - !<ColorSpaceTransform> {src: lin_xyz, dst: slog3_sgamut3cine}
+        - !<FileTransform> {src: slog3_td_tungsten_base.cube, interpolation: tetrahedral}
+
+  - !<ColorSpace>
+    name: AB01 Cool FPE - Rec.709 - 2.4 Gamma
+    family: Picture Shop
+    bitdepth: 32f
+    from_reference: !<GroupTransform>
+      children:
+        - !<ColorSpaceTransform> {src: lin_xyz, dst: slog3_sgamut3cine}
+        - !<FileTransform> {src: AB01_Cool_fpe_r709.cube, interpolation: tetrahedral}
+
+  - !<ColorSpace>
+    name: AB02 Cool D65 - Rec.709 - 2.4 Gamma
+    family: Picture Shop
+    bitdepth: 32f
+    from_reference: !<GroupTransform>
+      children:
+        - !<ColorSpaceTransform> {src: lin_xyz, dst: slog3_sgamut3cine}
+        - !<FileTransform> {src: AB02_Cool_d65_r709.cube, interpolation: tetrahedral}
+
+  - !<ColorSpace>
+    name: AB03 Warm FPE - Rec.709 - 2.4 Gamma
+    family: Picture Shop
+    bitdepth: 32f
+    from_reference: !<GroupTransform>
+      children:
+        - !<ColorSpaceTransform> {src: lin_xyz, dst: slog3_sgamut3cine}
+        - !<FileTransform> {src: AB03_Warm_fpe_r709.cube, interpolation: tetrahedral}
+
+  - !<ColorSpace>
+    name: AB04 Warm D65 - Rec.709 - 2.4 Gamma
+    family: Picture Shop
+    bitdepth: 32f
+    from_reference: !<GroupTransform>
+      children:
+        - !<ColorSpaceTransform> {src: lin_xyz, dst: slog3_sgamut3cine}
+        - !<FileTransform> {src: AB04_Warm_d65_r709.cube, interpolation: tetrahedral}
+
+  - !<ColorSpace>
+    name: AB05 Aged Tinted FPE - Rec.709 - 2.4 Gamma
+    family: Picture Shop
+    bitdepth: 32f
+    from_reference: !<GroupTransform>
+      children:
+        - !<ColorSpaceTransform> {src: lin_xyz, dst: slog3_sgamut3cine}
+        - !<FileTransform> {src: AB05_aged_Tinted_fpe_r709.cube, interpolation: tetrahedral}
+
+  - !<ColorSpace>
+    name: AB06 Aged Tinted D65 - Rec.709 - 2.4 Gamma
+    family: Picture Shop
+    bitdepth: 32f
+    from_reference: !<GroupTransform>
+      children:
+        - !<ColorSpaceTransform> {src: lin_xyz, dst: slog3_sgamut3cine}
+        - !<FileTransform> {src: AB06_aged_Tinted_d65_r709.cube, interpolation: tetrahedral}
+
+  - !<ColorSpace>
+    name: DD01 Classic FPE - Rec.709 - 2.4 Gamma
+    family: Picture Shop
+    bitdepth: 32f
+    from_reference: !<GroupTransform>
+      children:
+        - !<ColorSpaceTransform> {src: lin_xyz, dst: slog3_sgamut3cine}
+        - !<FileTransform> {src: DD01_Classic_fpe_r709.cube, interpolation: tetrahedral}        
+
+  - !<ColorSpace>
+    name: JF01 Fogged Color Pull FPE - Rec.709 - 2.4 Gamma
+    family: Picture Shop
+    bitdepth: 32f
+    from_reference: !<GroupTransform>
+      children:
+        - !<ColorSpaceTransform> {src: lin_xyz, dst: slog3_sgamut3cine}
+        - !<FileTransform> {src: JF01_Fogged_color_pull_fpe_r709.cube, interpolation: tetrahedral}
+
+  - !<ColorSpace>
+    name: JF02 Cool Color Push FPE - Rec.709 - 2.4 Gamma
+    family: Picture Shop
+    bitdepth: 32f
+    from_reference: !<GroupTransform>
+      children:
+        - !<ColorSpaceTransform> {src: lin_xyz, dst: slog3_sgamut3cine}
+        - !<FileTransform> {src: JF02_Cool_color_push_fpe_r709.cube, interpolation: tetrahedral}
+
+  - !<ColorSpace>
+    name: JF03 Silver Color Pull FPE - Rec.709 - 2.4 Gamma
+    family: Picture Shop
+    bitdepth: 32f
+    from_reference: !<GroupTransform>
+      children:
+        - !<ColorSpaceTransform> {src: lin_xyz, dst: slog3_sgamut3cine}
+        - !<FileTransform> {src: JF03_Silver_color_pull_fpe_r709.cube, interpolation: tetrahedral}
+
+  - !<ColorSpace>
+    name: JF04 Color Push D65 - Rec.709 - 2.4 Gamma
+    family: Picture Shop
+    bitdepth: 32f
+    from_reference: !<GroupTransform>
+      children:
+        - !<ColorSpaceTransform> {src: lin_xyz, dst: slog3_sgamut3cine}
+        - !<FileTransform> {src: JF04_color_push_d65_r709.cube, interpolation: tetrahedral}
+
+  - !<ColorSpace>
+    name: JF05 Super Silver Color Push D65 - Rec.709 - 2.4 Gamma
+    family: Picture Shop
+    bitdepth: 32f
+    from_reference: !<GroupTransform>
+      children:
+        - !<ColorSpaceTransform> {src: lin_xyz, dst: slog3_sgamut3cine}
+        - !<FileTransform> {src: JF05_super_Silver_color_push_d65_r709.cube, interpolation: tetrahedral}
+
+  - !<ColorSpace>
+    name: JF06 Cool Push D65 - Rec.709 - 2.4 Gamma
+    family: Picture Shop
+    bitdepth: 32f
+    from_reference: !<GroupTransform>
+      children:
+        - !<ColorSpaceTransform> {src: lin_xyz, dst: slog3_sgamut3cine}
+        - !<FileTransform> {src: JF06_Cool_push_d65_r709.cube, interpolation: tetrahedral}
+
+  - !<ColorSpace>
+    name: MG01 Golden Lush FPE - Rec.709 - 2.4 Gamma
+    family: Picture Shop
+    bitdepth: 32f
+    from_reference: !<GroupTransform>
+      children:
+        - !<ColorSpaceTransform> {src: lin_xyz, dst: slog3_sgamut3cine}
+        - !<FileTransform> {src: MG01_Golden_lush_fpe_r709.cube, interpolation: tetrahedral}
+
+  - !<ColorSpace>
+    name: MG02 Golden Lush D65 - Rec.709 - 2.4 Gamma
+    family: Picture Shop
+    bitdepth: 32f
+    from_reference: !<GroupTransform>
+      children:
+        - !<ColorSpaceTransform> {src: lin_xyz, dst: slog3_sgamut3cine}
+        - !<FileTransform> {src: MG02_Golden_lush_d65_r709.cube, interpolation: tetrahedral}
+
+  - !<ColorSpace>
+    name: MG03 Grit Cold FPE - Rec.709 - 2.4 Gamma
+    family: Picture Shop
+    bitdepth: 32f
+    from_reference: !<GroupTransform>
+      children:
+        - !<ColorSpaceTransform> {src: lin_xyz, dst: slog3_sgamut3cine}
+        - !<FileTransform> {src: MG03_grit_Cold_fpe_r709.cube, interpolation: tetrahedral}
+
+  - !<ColorSpace>
+    name: MG04 Grit Cold D65 - Rec.709 - 2.4 Gamma
+    family: Picture Shop
+    bitdepth: 32f
+    from_reference: !<GroupTransform>
+      children:
+        - !<ColorSpaceTransform> {src: lin_xyz, dst: slog3_sgamut3cine}
+        - !<FileTransform> {src: MG04_grit_Cold_d65_r709.cube, interpolation: tetrahedral}
+
+  - !<ColorSpace>
+    name: MG05 Silver Sat FPE - Rec.709 - 2.4 Gamma
+    family: Picture Shop
+    bitdepth: 32f
+    from_reference: !<GroupTransform>
+      children:
+        - !<ColorSpaceTransform> {src: lin_xyz, dst: slog3_sgamut3cine}
+        - !<FileTransform> {src: MG05_Silver_sat_fpe_r709.cube, interpolation: tetrahedral}
+
+  - !<ColorSpace>
+    name: MG06 Silver Sat D65 - Rec.709 - 2.4 Gamma
+    family: Picture Shop
+    bitdepth: 32f
+    from_reference: !<GroupTransform>
+      children:
+        - !<ColorSpaceTransform> {src: lin_xyz, dst: slog3_sgamut3cine}
+        - !<FileTransform> {src: MG06_Silver_sat_d65_r709.cube, interpolation: tetrahedral}
+
+  - !<ColorSpace>
+    name: SA01 Warm FPE - Rec.709 - 2.4 Gamma
+    family: Picture Shop
+    bitdepth: 32f
+    from_reference: !<GroupTransform>
+      children:
+        - !<ColorSpaceTransform> {src: lin_xyz, dst: slog3_sgamut3cine}
+        - !<FileTransform> {src: SA01_Warm_fpe_r709.cube, interpolation: tetrahedral}
+
+  - !<ColorSpace>
+    name: SA02 Cool FPE - Rec.709 - 2.4 Gamma
+    family: Picture Shop
+    bitdepth: 32f
+    from_reference: !<GroupTransform>
+      children:
+        - !<ColorSpaceTransform> {src: lin_xyz, dst: slog3_sgamut3cine}
+        - !<FileTransform> {src: SA02_Cool_fpe_r709.cube, interpolation: tetrahedral}
+
+  - !<ColorSpace>
+    name: SA03 Golden FPE - Rec.709 - 2.4 Gamma
+    family: Picture Shop
+    bitdepth: 32f
+    from_reference: !<GroupTransform>
+      children:
+        - !<ColorSpaceTransform> {src: lin_xyz, dst: slog3_sgamut3cine}
+        - !<FileTransform> {src: SA03_Golden_fpe_r709.cube, interpolation: tetrahedral}
+
+############################################## UTILITY ##############################################         
+
+  - !<ColorSpace>
+    name: raw
+    family: Utility
+    bitdepth: 32f    
+    description: No operation
+    allocation: uniform
+    allocationvars: [0, 1]
+    isdata: true        
+
+  - !<ColorSpace>
+    name: srgb_texture
+    family: Utility
+    bitdepth: 32f
+    description: The sRGB - Piecewise function color space
+    from_reference: !<GroupTransform>
+      children:
+        - !<MatrixTransform> {matrix: [0.4338873, 0.3762240, 0.1898886, 0, 0.2126390, 0.7151687, 0.0721923, 0, 0.0177500, 0.1094476, 0.8728023, 0, 0, 0, 0, 1], direction: inverse}
+        - !<FileTransform> {src: linear_to_sRGB.spi1d, interpolation: linear}
+    allocation: uniform
+    allocationvars: [0, 1]        
+
+  - !<ColorSpace>
+    name: rec709_display
+    family: Utility    
+    bitdepth: 32f
+    description: The Rec.709 - Display color space
+    from_reference: !<GroupTransform>
+      children:
+        - !<MatrixTransform> {matrix: [0.4338873, 0.3762240, 0.1898886, 0, 0.2126390, 0.7151687, 0.0721923, 0, 0.0177500, 0.1094476, 0.8728023, 0, 0, 0, 0, 1], direction: inverse}
+        - !<FileTransform> {src: linear_to_rec1886.spi1d, interpolation: linear}
+    allocation: uniform
+    allocationvars: [0, 1]          
