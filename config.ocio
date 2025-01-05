@@ -9,7 +9,7 @@ roles:
   color_picking: linear
   color_timing: slog3_sgamut3cine
   compositing_log: slog3_sgamut3cine
-  data: raw
+  data: non-colour data
   default: linear
   matte_paint: cineonlog_rec709
   rendering: linear
@@ -21,9 +21,11 @@ roles:
   mari_working: linear
   mari_int8: srgb_texture
   mari_int16: srgb_texture
-  mari_int_scalar: raw
-  mari_scalar8: raw
+  mari_int_scalar: non-colour data
+  mari_scalar8: non-colour data
   mari_float: linear
+  reference: lin_xyz
+  srgb_linear: linear  
   substance_3d_painter_standard_srgb: srgb_texture
   substance_3d_painter_bitmap_import_8bit: srgb_texture
   substance_3d_painter_bitmap_import_16bit: srgb_texture
@@ -72,12 +74,12 @@ displays:
     - !<View> {name: SONY VENICE SA01 Warm FPE, colorspace: SA01 Warm FPE - Rec.709 - 2.4 Gamma}
     - !<View> {name: SONY VENICE SA02 Cool FPE, colorspace: SA02 Cool FPE - Rec.709 - 2.4 Gamma}
     - !<View> {name: SONY VENICE SA03 Golden FPE, colorspace: SA03 Golden FPE - Rec.709 - 2.4 Gamma}    
-    - !<View> {name: Un-tone-mapped, colorspace: rec709_display}               
+    - !<View> {name: Display Encoding, colorspace: rec709_display}               
     - !<View> {name: Log, colorspace: cineonlog_rec709}
-    - !<View> {name: Raw, colorspace: raw}
+    - !<View> {name: None, colorspace: non-colour data}
 
 active_displays: [Rec1886 100 nits Video dim]
-active_views: [SONY VENICE High Contrast, Un-tone-mapped, Log, Raw]
+active_views: [SONY VENICE High Contrast, Display Encoding, Log, None]
 
 ##################################### SCENE-REFERRED ##############################################
 
@@ -86,7 +88,7 @@ colorspaces:
     name: linear
     family: SceneReferred    
     bitdepth: 32f
-    description: Linear - Rec.709
+    description: Linear - Rec.709 - D65
     to_reference: !<MatrixTransform> {matrix: [0.4338873, 0.3762240, 0.1898886, 0, 0.2126390, 0.7151687, 0.0721923, 0, 0.0177500, 0.1094476, 0.8728023, 0, 0, 0, 0, 1]}
     allocation: lg2
     allocationvars: [-10, 7, 0.0056065625]
@@ -95,7 +97,7 @@ colorspaces:
     name: cineonlog_rec709
     family: SceneReferred    
     bitdepth: 32f
-    description: Cineon Log - Rec.709
+    description: Cineon Log - Rec.709 - D65
     to_reference: !<GroupTransform>
       children:
         - !<FileTransform> {src: CineonLog_2_Linear.spi1d, interpolation: linear}
@@ -105,7 +107,7 @@ colorspaces:
     name: slog3_sgamut3cine
     family: SceneReferred    
     bitdepth: 32f    
-    description: Grading space
+    description: Sony - S-Log3 - S-Gamut3.Cine - D65
     to_reference: !<GroupTransform>
       children:
         - !<FileTransform> {src: SLog3_2_Linear.spi1d, interpolation: linear}
@@ -115,7 +117,7 @@ colorspaces:
     name: lin_xyz
     family: SceneReferred    
     bitdepth: 32f
-    description: Linear reference space
+    description: CIE - Linear - XYZ - E
     allocation: lg2
     allocationvars: [-10, 7, 0.0056065625]           
  
@@ -123,7 +125,7 @@ colorspaces:
     name: aces
     family: SceneReferred    
     bitdepth: 32f
-    description: Linear - AP0
+    description: ACES 2065-1 - Linear - AP0 - ACES White Point (~D60)
     to_reference: !<MatrixTransform> {matrix: [0.9999017, 0.0000000, 0.0000983, 0, 0.3439664, 0.7281661, -0.0721325, 0, 0.0000000, 0.0000000, 1.0000000, 0, 0, 0, 0, 1]}
     allocation: lg2
     allocationvars: [-10, 7, 0.0056065625]  
@@ -132,7 +134,7 @@ colorspaces:
     name: acescg
     family: SceneReferred    
     bitdepth: 32f
-    description: Linear - AP1  
+    description: ACEScg - Linear - AP1 - ACES White Point (~D60)
     to_reference: !<MatrixTransform> {matrix: [0.6953833105, 0.1406652586, 0.1639514308, 0, 0.2722287168, 0.6740817658, 0.0536895174, 0, -0.0055258826, 0.0040252103, 1.0015006723, 0, 0, 0, 0, 1]}
     allocation: lg2
     allocationvars: [-10, 7, 0.0056065625]
@@ -143,6 +145,7 @@ colorspaces:
     name: SONY VENICE - Rec.709 - 2.4 Gamma
     family: Sony Collection
     bitdepth: 32f
+    description: Sony Venice motion picture camera workflow
     from_reference: !<GroupTransform>
       children:
         - !<ColorSpaceTransform> {src: lin_xyz, dst: slog3_sgamut3cine}
@@ -152,6 +155,7 @@ colorspaces:
     name: Cine Gear Noir BW - Rec.709 - 2.4 Gamma
     family: Cine Gear
     bitdepth: 32f
+    description: A low contrast black and white LUT that allows you to see in the shadows
     from_reference: !<GroupTransform>
       children:
         - !<ColorSpaceTransform> {src: lin_xyz, dst: slog3_sgamut3cine}
@@ -161,6 +165,7 @@ colorspaces:
     name: Cine Gear Noir Teal - Rec.709 - 2.4 Gamma
     family: Cine Gear
     bitdepth: 32f
+    description: Features low contrast, is less saturated and allows blue and teal colors to pop
     from_reference: !<GroupTransform>
       children:
         - !<ColorSpaceTransform> {src: lin_xyz, dst: slog3_sgamut3cine}
@@ -170,6 +175,7 @@ colorspaces:
     name: Burano Cool - Rec.709 - 2.4 Gamma
     family: Burano
     bitdepth: 32f
+    description: Matches the internal LUT available in the BURANO camera
     from_reference: !<GroupTransform>
       children:
         - !<ColorSpaceTransform> {src: lin_xyz, dst: slog3_sgamut3cine}
@@ -179,6 +185,7 @@ colorspaces:
     name: Burano Teal And Orange - Rec.709 - 2.4 Gamma
     family: Burano
     bitdepth: 32f
+    description: Matches the internal LUT available in the BURANO camera    
     from_reference: !<GroupTransform>
       children:
         - !<ColorSpaceTransform> {src: lin_xyz, dst: slog3_sgamut3cine}
@@ -188,6 +195,7 @@ colorspaces:
     name: Burano Warm - Rec.709 - 2.4 Gamma
     family: Burano
     bitdepth: 32f
+    description: Matches the internal LUT available in the BURANO camera    
     from_reference: !<GroupTransform>
       children:
         - !<ColorSpaceTransform> {src: lin_xyz, dst: slog3_sgamut3cine}
@@ -197,6 +205,7 @@ colorspaces:
     name: Burano Vintage - Rec.709 - 2.4 Gamma
     family: Burano
     bitdepth: 32f
+    description: Matches the internal LUT available in the BURANO camera    
     from_reference: !<GroupTransform>
       children:
         - !<ColorSpaceTransform> {src: lin_xyz, dst: slog3_sgamut3cine}
@@ -206,6 +215,7 @@ colorspaces:
     name: Low Contrast Base LUT - Rec.709 - 2.4 Gamma
     family: Josh Pines
     bitdepth: 32f
+    description: The Lo Con Base LUT is a low-contrast base LUT that's intended to be modified and graded. It offers a low-contrast starting point and has the S-curve built into it. This base LUT is designed for DITs and DPs who want to create their own LUT or look development for each project.
     from_reference: !<GroupTransform>
       children:
         - !<ColorSpaceTransform> {src: lin_xyz, dst: slog3_sgamut3cine}
@@ -215,6 +225,7 @@ colorspaces:
     name: High Contrast LUT - Rec.709 - 2.4 Gamma
     family: Josh Pines
     bitdepth: 32f
+    description: This is the high-contrast version of the Lo Con Base LUT
     from_reference: !<GroupTransform>
       children:
         - !<ColorSpaceTransform> {src: lin_xyz, dst: slog3_sgamut3cine}
@@ -224,6 +235,7 @@ colorspaces:
     name: 50-50 LUT - Rec.709 - 2.4 Gamma
     family: Josh Pines
     bitdepth: 32f
+    description: This is the Goldilocks version of the LUT trio with more contrast and saturation than the Lo Con Base LUT
     from_reference: !<GroupTransform>
       children:
         - !<ColorSpaceTransform> {src: lin_xyz, dst: slog3_sgamut3cine}
@@ -233,6 +245,7 @@ colorspaces:
     name: Look1 - Rec.709 - 2.4 Gamma
     family: Josh Pines
     bitdepth: 32f
+    description: Developed by Picture Shop Senior Colorist Jason Fabbro (Captain Marvel, Thor:Ragnorak, Ready Player One), this look was created using the Lo Con Base LUT. It offers slightly more contrast and saturation, while the reds and highlights have been pulled down to look less digital.
     from_reference: !<GroupTransform>
       children:
         - !<ColorSpaceTransform> {src: lin_xyz, dst: slog3_sgamut3cine}
@@ -242,6 +255,7 @@ colorspaces:
     name: Look2 - Rec.709 - 2.4 Gamma
     family: Josh Pines
     bitdepth: 32f
+    description: Also developed by Jason Fabbro, this look was also created using the Lo Con Base LUT. It offers more warmth to skin tones in addition to added contrast and saturation. Like Look 1, the reds and highlights have been pulled down to look less digital.
     from_reference: !<GroupTransform>
       children:
         - !<ColorSpaceTransform> {src: lin_xyz, dst: slog3_sgamut3cine}
@@ -251,6 +265,7 @@ colorspaces:
     name: Damore Daylight - Rec.709 - 2.4 Gamma
     family: Picture Shop
     bitdepth: 32f
+    description:  Designed by Picture Shop Senior Colorist and Director of Creative Workflow Tony D’Amore (Fargo, Elementary, Daredevil, Mayans MC), this daylight base LUT cools off the blacks and warms up the highlights to give better color separation off the sensor so the image is a little closer to what the DP’s naked eye might see on-set. Then during the grade this base LUT provides a better starting point which saves time and opens creative possibilities. 
     from_reference: !<GroupTransform>
       children:
         - !<ColorSpaceTransform> {src: lin_xyz, dst: slog3_sgamut3cine}
@@ -260,6 +275,7 @@ colorspaces:
     name: Damore Style - Rec.709 - 2.4 Gamma
     family: Picture Shop
     bitdepth: 32f
+    description: The look LUT pushes the color separation a bit further than the daylight LUT by adding a warm shift to the highlights and mids for rich skin tones; then I’ve offset the warm shift by cooling off the blacks to help maintain good color separation.
     from_reference: !<GroupTransform>
       children:
         - !<ColorSpaceTransform> {src: lin_xyz, dst: slog3_sgamut3cine}
@@ -269,6 +285,7 @@ colorspaces:
     name: Damore Tungsten - Rec.709 - 2.4 Gamma
     family: Picture Shop
     bitdepth: 32f
+    description: This is tungsten version of D’Amore’s Daylight LUT.
     from_reference: !<GroupTransform>
       children:
         - !<ColorSpaceTransform> {src: lin_xyz, dst: slog3_sgamut3cine}
@@ -278,6 +295,7 @@ colorspaces:
     name: AB01 Cool FPE - Rec.709 - 2.4 Gamma
     family: Picture Shop
     bitdepth: 32f
+    description: Picture Shop Look Library - Colorist Anne Boyle
     from_reference: !<GroupTransform>
       children:
         - !<ColorSpaceTransform> {src: lin_xyz, dst: slog3_sgamut3cine}
@@ -287,6 +305,7 @@ colorspaces:
     name: AB02 Cool D65 - Rec.709 - 2.4 Gamma
     family: Picture Shop
     bitdepth: 32f
+    description: Picture Shop Look Library - Colorist Anne Boyle
     from_reference: !<GroupTransform>
       children:
         - !<ColorSpaceTransform> {src: lin_xyz, dst: slog3_sgamut3cine}
@@ -296,6 +315,7 @@ colorspaces:
     name: AB03 Warm FPE - Rec.709 - 2.4 Gamma
     family: Picture Shop
     bitdepth: 32f
+    description: Picture Shop Look Library - Colorist Anne Boyle
     from_reference: !<GroupTransform>
       children:
         - !<ColorSpaceTransform> {src: lin_xyz, dst: slog3_sgamut3cine}
@@ -305,6 +325,7 @@ colorspaces:
     name: AB04 Warm D65 - Rec.709 - 2.4 Gamma
     family: Picture Shop
     bitdepth: 32f
+    description: Picture Shop Look Library - Colorist Anne Boyle
     from_reference: !<GroupTransform>
       children:
         - !<ColorSpaceTransform> {src: lin_xyz, dst: slog3_sgamut3cine}
@@ -314,6 +335,7 @@ colorspaces:
     name: AB05 Aged Tinted FPE - Rec.709 - 2.4 Gamma
     family: Picture Shop
     bitdepth: 32f
+    description: Picture Shop Look Library - Colorist Anne Boyle
     from_reference: !<GroupTransform>
       children:
         - !<ColorSpaceTransform> {src: lin_xyz, dst: slog3_sgamut3cine}
@@ -323,6 +345,7 @@ colorspaces:
     name: AB06 Aged Tinted D65 - Rec.709 - 2.4 Gamma
     family: Picture Shop
     bitdepth: 32f
+    description: Picture Shop Look Library - Colorist Anne Boyle
     from_reference: !<GroupTransform>
       children:
         - !<ColorSpaceTransform> {src: lin_xyz, dst: slog3_sgamut3cine}
@@ -332,6 +355,7 @@ colorspaces:
     name: DD01 Classic FPE - Rec.709 - 2.4 Gamma
     family: Picture Shop
     bitdepth: 32f
+    description: Picture Shop Look Library - Colorist Doug Delaney
     from_reference: !<GroupTransform>
       children:
         - !<ColorSpaceTransform> {src: lin_xyz, dst: slog3_sgamut3cine}
@@ -341,6 +365,7 @@ colorspaces:
     name: JF01 Fogged Color Pull FPE - Rec.709 - 2.4 Gamma
     family: Picture Shop
     bitdepth: 32f
+    description: Picture Shop Look Library - Colorist Jason Fabbro
     from_reference: !<GroupTransform>
       children:
         - !<ColorSpaceTransform> {src: lin_xyz, dst: slog3_sgamut3cine}
@@ -350,6 +375,7 @@ colorspaces:
     name: JF02 Cool Color Push FPE - Rec.709 - 2.4 Gamma
     family: Picture Shop
     bitdepth: 32f
+    description: Picture Shop Look Library - Colorist Jason Fabbro
     from_reference: !<GroupTransform>
       children:
         - !<ColorSpaceTransform> {src: lin_xyz, dst: slog3_sgamut3cine}
@@ -359,6 +385,7 @@ colorspaces:
     name: JF03 Silver Color Pull FPE - Rec.709 - 2.4 Gamma
     family: Picture Shop
     bitdepth: 32f
+    description: Picture Shop Look Library - Colorist Jason Fabbro
     from_reference: !<GroupTransform>
       children:
         - !<ColorSpaceTransform> {src: lin_xyz, dst: slog3_sgamut3cine}
@@ -368,6 +395,7 @@ colorspaces:
     name: JF04 Color Push D65 - Rec.709 - 2.4 Gamma
     family: Picture Shop
     bitdepth: 32f
+    description: Picture Shop Look Library - Colorist Jason Fabbro
     from_reference: !<GroupTransform>
       children:
         - !<ColorSpaceTransform> {src: lin_xyz, dst: slog3_sgamut3cine}
@@ -377,6 +405,7 @@ colorspaces:
     name: JF05 Super Silver Color Push D65 - Rec.709 - 2.4 Gamma
     family: Picture Shop
     bitdepth: 32f
+    description: Picture Shop Look Library - Colorist Jason Fabbro
     from_reference: !<GroupTransform>
       children:
         - !<ColorSpaceTransform> {src: lin_xyz, dst: slog3_sgamut3cine}
@@ -386,6 +415,7 @@ colorspaces:
     name: JF06 Cool Push D65 - Rec.709 - 2.4 Gamma
     family: Picture Shop
     bitdepth: 32f
+    description: Picture Shop Look Library - Colorist Jason Fabbro
     from_reference: !<GroupTransform>
       children:
         - !<ColorSpaceTransform> {src: lin_xyz, dst: slog3_sgamut3cine}
@@ -395,6 +425,7 @@ colorspaces:
     name: MG01 Golden Lush FPE - Rec.709 - 2.4 Gamma
     family: Picture Shop
     bitdepth: 32f
+    description: Picture Shop Look Library - Colorist Maxine Gervais
     from_reference: !<GroupTransform>
       children:
         - !<ColorSpaceTransform> {src: lin_xyz, dst: slog3_sgamut3cine}
@@ -404,6 +435,7 @@ colorspaces:
     name: MG02 Golden Lush D65 - Rec.709 - 2.4 Gamma
     family: Picture Shop
     bitdepth: 32f
+    description: Picture Shop Look Library - Colorist Maxine Gervais
     from_reference: !<GroupTransform>
       children:
         - !<ColorSpaceTransform> {src: lin_xyz, dst: slog3_sgamut3cine}
@@ -413,6 +445,7 @@ colorspaces:
     name: MG03 Grit Cold FPE - Rec.709 - 2.4 Gamma
     family: Picture Shop
     bitdepth: 32f
+    description: Picture Shop Look Library - Colorist Maxine Gervais
     from_reference: !<GroupTransform>
       children:
         - !<ColorSpaceTransform> {src: lin_xyz, dst: slog3_sgamut3cine}
@@ -422,6 +455,7 @@ colorspaces:
     name: MG04 Grit Cold D65 - Rec.709 - 2.4 Gamma
     family: Picture Shop
     bitdepth: 32f
+    description: Picture Shop Look Library - Colorist Maxine Gervais
     from_reference: !<GroupTransform>
       children:
         - !<ColorSpaceTransform> {src: lin_xyz, dst: slog3_sgamut3cine}
@@ -431,6 +465,7 @@ colorspaces:
     name: MG05 Silver Sat FPE - Rec.709 - 2.4 Gamma
     family: Picture Shop
     bitdepth: 32f
+    description: Picture Shop Look Library - Colorist Maxine Gervais
     from_reference: !<GroupTransform>
       children:
         - !<ColorSpaceTransform> {src: lin_xyz, dst: slog3_sgamut3cine}
@@ -440,6 +475,7 @@ colorspaces:
     name: MG06 Silver Sat D65 - Rec.709 - 2.4 Gamma
     family: Picture Shop
     bitdepth: 32f
+    description: Picture Shop Look Library - Colorist Maxine Gervais
     from_reference: !<GroupTransform>
       children:
         - !<ColorSpaceTransform> {src: lin_xyz, dst: slog3_sgamut3cine}
@@ -449,6 +485,7 @@ colorspaces:
     name: SA01 Warm FPE - Rec.709 - 2.4 Gamma
     family: Picture Shop
     bitdepth: 32f
+    description: Picture Shop Look Library - Colorist Sparkle
     from_reference: !<GroupTransform>
       children:
         - !<ColorSpaceTransform> {src: lin_xyz, dst: slog3_sgamut3cine}
@@ -458,6 +495,7 @@ colorspaces:
     name: SA02 Cool FPE - Rec.709 - 2.4 Gamma
     family: Picture Shop
     bitdepth: 32f
+    description: Picture Shop Look Library - Colorist Sparkle
     from_reference: !<GroupTransform>
       children:
         - !<ColorSpaceTransform> {src: lin_xyz, dst: slog3_sgamut3cine}
@@ -467,6 +505,7 @@ colorspaces:
     name: SA03 Golden FPE - Rec.709 - 2.4 Gamma
     family: Picture Shop
     bitdepth: 32f
+    description: Picture Shop Look Library - Colorist Sparkle
     from_reference: !<GroupTransform>
       children:
         - !<ColorSpaceTransform> {src: lin_xyz, dst: slog3_sgamut3cine}
@@ -475,19 +514,19 @@ colorspaces:
 ############################################## UTILITY ##############################################         
 
   - !<ColorSpace>
-    name: raw
+    name: non-colour data
     family: Utility
-    bitdepth: 32f    
+    bitdepth: 32f
     description: No operation
+    isdata: true
     allocation: uniform
     allocationvars: [0, 1]
-    isdata: true        
 
   - !<ColorSpace>
     name: srgb_texture
     family: Utility
     bitdepth: 32f
-    description: The sRGB - Piecewise function color space
+    description: sRGB Piecewise Function - Rec.709 - D65
     from_reference: !<GroupTransform>
       children:
         - !<MatrixTransform> {matrix: [0.4338873, 0.3762240, 0.1898886, 0, 0.2126390, 0.7151687, 0.0721923, 0, 0.0177500, 0.1094476, 0.8728023, 0, 0, 0, 0, 1], direction: inverse}
@@ -497,12 +536,12 @@ colorspaces:
 
   - !<ColorSpace>
     name: rec709_display
-    family: Utility    
+    family: Utility
     bitdepth: 32f
-    description: The Rec.709 - Display color space
+    description: Gamma 2.4 - Rec.709 - D65
     from_reference: !<GroupTransform>
       children:
         - !<MatrixTransform> {matrix: [0.4338873, 0.3762240, 0.1898886, 0, 0.2126390, 0.7151687, 0.0721923, 0, 0.0177500, 0.1094476, 0.8728023, 0, 0, 0, 0, 1], direction: inverse}
         - !<FileTransform> {src: linear_to_rec1886.spi1d, interpolation: linear}
     allocation: uniform
-    allocationvars: [0, 1]          
+    allocationvars: [0, 1]
