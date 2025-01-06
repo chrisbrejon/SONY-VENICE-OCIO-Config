@@ -19,6 +19,7 @@ Original files (encoded in "linear-AP0") are available [here](https://www.dropbo
 
 # About the config
 * Reference color space is XYZ which is the base of all colourimetry
+* All matrixes have been generated using [colour-science](https://www.colour-science.org/apps/) with CAT02
 * "linear" stands for "linear_bt.709"
 * "cineonlog_rec709" can be used for a matte-painting workflow in Photoshop
 * "slog3_sgamut3cine" is the shaper space. It can be used for color timing and some operations (such as sharpen)
